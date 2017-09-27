@@ -14,6 +14,8 @@ var todos = [
   {"id": 2, "text": "Pick up groceries", "status": "complete"}
 ];
 
+var highestTodoId = 2;
+
 app.get('/', function(req, res) {
   var bundle = `//${req.hostname}:8080/public/bundle.js`;
 
@@ -39,7 +41,7 @@ app.post('/todos', function(req, res) {
     return res.status(400).json({"message": "text is required"});
   }
 
-  var id = todos.length + 1;
+  var id = ++highestTodoId;
   var newTodo = { "id": id, "text": text, "status": "active" };
   todos.push(newTodo);
 
