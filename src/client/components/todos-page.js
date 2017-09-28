@@ -7,6 +7,7 @@ import Navbar from './navbar';
 import TodoForm from './todo-form';
 import TodoLink from './todo-link';
 import Todos from './todos';
+import TodosCounter from './todos-counter';
 
 /**
  * TodosPage component
@@ -43,6 +44,7 @@ class TodosPage extends React.Component {
 
     this.addTodo = this.addTodo.bind(this);
     this.archiveAll = this.archiveAll.bind(this);
+    this.completeAll = this.completeAll.bind(this);
     this.postTodo = this.postTodo.bind(this);
     this.setFilterBy = this.setFilterBy.bind(this);
     this.updateTodos = this.updateTodos.bind(this);
@@ -72,8 +74,14 @@ class TodosPage extends React.Component {
    * Archive all complete todos
    */
   archiveAll() {
-    console.log("Archive all complete todos");
     api('archiveAll', null, this.updateTodos);
+  }
+
+  /**
+   * Complete all active todos
+   */
+  completeAll() {
+    api('completeAll', null, this.updateTodos);
   }
 
   /**
@@ -119,6 +127,11 @@ class TodosPage extends React.Component {
         />
 
         <div className="container">
+          <TodosCounter
+            onClickCompleteAll={this.completeAll} 
+            todos={this.state.todos}
+          />
+
           <TodoForm onSubmit={this.addTodo} />
 
           <Todos

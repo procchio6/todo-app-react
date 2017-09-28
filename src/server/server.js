@@ -80,14 +80,24 @@ app.put('/todos/:id', function(req, res) {
   res.json(todo);
 });
 
-app.patch('/todos/archiveAll', function (req, res) {
+app.patch('/todos/archiveAll', function(req, res) {
   todos.forEach(function(todo) {
     if (todo.status === "complete") {
       todo.archive = true;
     }
-  })
+  });
 
-  res.json(todos)
+  res.json(todos);
+});
+
+app.patch('/todos/completeAll', function(req, res) {
+  todos.forEach(function(todo) {
+    if (todo.status === "active") {
+      todo.status = "complete";
+    }
+  });
+
+  res.json(todos);
 });
 
 app.get('*', function(req, res) {

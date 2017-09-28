@@ -39,6 +39,7 @@ export function getApiPromise(method, data) {
     case 'completeAll':
       method = 'PATCH'
       url += '/completeAll'
+      break;
   }
 
   const options = {

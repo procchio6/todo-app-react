@@ -1,0 +1,19 @@
+.todos-counter {
+  padding: 20px 0px;
+
+  &__complete-all {
+    font-size: 12px;
+    color: map-get($colors, primary);
+
+    &:hover {
+      cursor: pointer;
+      color: darken(map-get($colors, primary), 10%);
+    }
+  }
+
+  &__tasks-remaining {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+
+}
