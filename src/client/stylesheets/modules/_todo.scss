@@ -1,6 +1,19 @@
 // Todo module.
 .todo {
-  cursor: pointer;
+  border-bottom: 1px solid $lightgray;
+  padding: 20px 0px;
+
+  &__checkbox {
+    transform: scale(1.5);
+    margin-left: 4%;
+    margin-right: 8%;
+  }
+
+  &-link {
+    display: inline;
+    margin-right: 8px;
+    cursor: pointer;
+  }
 
   &--status-complete {
     text-decoration: line-through;

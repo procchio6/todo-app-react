@@ -128,7 +128,7 @@ class TodosPage extends React.Component {
 
         <div className="container">
           <TodosCounter
-            onClickCompleteAll={this.completeAll} 
+            onClickCompleteAll={this.completeAll}
             todos={this.state.todos}
           />
 

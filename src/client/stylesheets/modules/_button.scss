@@ -1,3 +1,4 @@
+//Button Module
 .button {
   background-color: map-get($colors, green);
   border: none;
@@ -13,5 +14,17 @@
     box-sizing: content-box;
     float: right;
     margin-top: 9px;
+  }
+
+  &--delete {
+    background-color: map-get($colors, ui-transparent);
+    color: map-get($colors, gray);
+    float: right;
+    font-size: 16px;
+    margin-right: 4%;
+
+    &:hover {
+      color: map-get($colors, darkgray);
+    }
   }
 }
