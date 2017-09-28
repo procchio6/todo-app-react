@@ -10,8 +10,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var todos = [
-  {"id": 1, "text": "Hello, world!", "status": "active"},
-  {"id": 2, "text": "Pick up groceries", "status": "complete"}
+  {"id": 1, "text": "Hello, world!", "status": "active", "archive": false},
+  {"id": 2, "text": "Pick up groceries", "status": "complete", "archive": false}
 ];
 
 var highestTodoId = 2;
@@ -36,7 +36,7 @@ app.post('/todos', function(req, res) {
   }
 
   var id = ++highestTodoId;
-  var newTodo = { "id": id, "text": text, "status": "active" };
+  var newTodo = { "id": id, "text": text, "status": "active", archive: false };
   todos.push(newTodo);
 
   res.json(todos);
@@ -56,9 +56,8 @@ app.delete('/todos/:id', function(req, res) {
 
 app.put('/todos/:id', function(req, res) {
   var id = req.params.id
-  var text = req.body.data.text
-  var status = req.body.data.status
-  const validStatus = ['complete', 'active', 'archived']
+  var { archive, text, status } = req.body.data
+  const validStatus = ['complete', 'active']
 
   var index = todos.findIndex(function(todo) {
     return todo.id == id;
@@ -74,8 +73,9 @@ app.put('/todos/:id', function(req, res) {
     return res.status(400).json({"message": "status is not valid"});
   }
 
-  todo.text = text;
+  todo.archive = archive;
   todo.status = status;
+  todo.text = text;
 
   res.json(todo);
 });
