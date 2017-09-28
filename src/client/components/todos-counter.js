@@ -38,9 +38,12 @@ const TodosCounter = ({ onClickCompleteAll, todos }) => {
       <span className={baseCls+'__tasks-remaining'}>
         {`${activeTaskCount} tasks remaining`}
       </span>
-      <span className={baseCls+'__complete-all'} onClick={onClickCompleteAll}>
-        Complete All
-      </span>
+      {
+        activeTaskCount > 0 &&
+        <span className={baseCls+'__complete-all'} onClick={onClickCompleteAll}>
+          Complete All
+        </span>
+      }
     </div>
   );
 }
