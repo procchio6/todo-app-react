@@ -1,0 +1,21 @@
+.todo-form {
+  margin: 20px auto 20px auto;
+  width: 50%;
+
+  &__input {
+    background: -webkit-linear-gradient($lightgray, #fff);
+    background: -o-linear-gradient($lightgray, #fff);
+    background: linear-gradient($lightgray, #fff);
+    border: 1px solid map-get($colors, lightgray);
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 24px;
+    outline: none;
+    padding: 8px 12px;
+    width: 100%;
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+}
