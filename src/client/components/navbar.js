@@ -11,6 +11,7 @@ const noop = () => {};
  */
 const propTypes = {
   filterBy: React.PropTypes.string,
+  onClickArchiveAll: React.PropTypes.func,
   onClickFilter: React.PropTypes.func,
 };
 
@@ -20,6 +21,7 @@ const propTypes = {
  */
 const defaultProps = {
   filterBy: '',
+  onClickArchiveAll: noop,
   onClickFilter: noop,
 };
 
@@ -27,7 +29,7 @@ const defaultProps = {
  * Navbar component
  * @returns {ReactElement}
  */
-const Navbar = ({ filterBy, onClickFilter }) => {
+const Navbar = ({ filterBy, onClickArchiveAll, onClickFilter }) => {
   /**
    * Base CSS class
    */
@@ -72,7 +74,8 @@ const Navbar = ({ filterBy, onClickFilter }) => {
       </Link>
 
       <Button
-        buttonClass="button--archive-all" 
+        buttonClass="button--archive-all"
+        onClick={onClickArchiveAll}
         text="Archive all completed"
       />
     </div>

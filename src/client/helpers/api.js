@@ -31,6 +31,16 @@ export function getApiPromise(method, data) {
     url += `/${data.id}`;
   }
 
+  switch (method) {
+    case 'archiveAll':
+      method = 'PATCH'
+      url += '/archiveAll'
+      break;
+    case 'completeAll':
+      method = 'PATCH'
+      url += '/completeAll'
+  }
+
   const options = {
     method,
     headers: {

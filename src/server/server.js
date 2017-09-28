@@ -80,6 +80,16 @@ app.put('/todos/:id', function(req, res) {
   res.json(todo);
 });
 
+app.patch('/todos/archiveAll', function (req, res) {
+  todos.forEach(function(todo) {
+    if (todo.status === "complete") {
+      todo.archive = true;
+    }
+  })
+
+  res.json(todos)
+});
+
 app.get('*', function(req, res) {
   var bundle = `//${req.hostname}:8080/public/bundle.js`;
 
