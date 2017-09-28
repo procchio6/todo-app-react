@@ -1,12 +1,16 @@
 // Global layout.
 body {
   background: map-get($colors, ui-light);
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1000px;
-  padding: 0 20px;
+  padding: 0 8%;
   width: 100%;
 }
 

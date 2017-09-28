@@ -4,6 +4,7 @@
 
   &--status-complete {
     text-decoration: line-through;
+    color: map-get($colors, grey)
   }
 
   &--filtered {

@@ -16,12 +16,6 @@ var todos = [
 
 var highestTodoId = 2;
 
-app.get('/', function(req, res) {
-  var bundle = `//${req.hostname}:8080/public/bundle.js`;
-
-  res.render('index', {bundle});
-});
-
 app.get('/todos', function(req, res) {
   res.json(todos);
 });
@@ -84,6 +78,12 @@ app.put('/todos/:id', function(req, res) {
   todo.status = status;
 
   res.json(todo);
+});
+
+app.get('*', function(req, res) {
+  var bundle = `//${req.hostname}:8080/public/bundle.js`;
+
+  res.render('index', {bundle});
 });
 
 // Node server.

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { IndexLink, Link } from 'react-router';
+
+import Button from './button'
 
 const noop = () => {};
 
@@ -31,34 +33,48 @@ const Navbar = ({ filterBy, onClickFilter }) => {
    */
   const baseCls = 'navbar'
 
-  let activeLinkCls = `${baseCls}__item`;
-  activeLinkCls += filterBy === 'active' ? ` ${baseCls}__item--active` : '';
-
-  let completedLinkCls = `${baseCls}__item`;
-  completedLinkCls += filterBy === 'completed' ? ` ${baseCls}__item--active` : '';
-
   return (
     <div className={baseCls}>
-      <Link
+      <IndexLink
         to="/"
         activeClassName={`${baseCls}__item--active`}
         className={`${baseCls}__item`}
         onClick={() => onClickFilter('')}
       >
         All
-      </Link>
-      <span
-        className={activeLinkCls}
+      </IndexLink>
+
+      <Link
+        to="/active"
+        activeClassName={`${baseCls}__item--active`}
+        className={`${baseCls}__item`}
         onClick={() => onClickFilter('active')}
       >
         Active
-      </span>
-      <span
-        className={completedLinkCls}
+      </Link>
+
+      <Link
+        to="/completed"
+        activeClassName={`${baseCls}__item--active`}
+        className={`${baseCls}__item`}
         onClick={() => onClickFilter('completed')}
       >
         Completed
-      </span>
+      </Link>
+
+      <Link
+        to="/archived"
+        activeClassName={`${baseCls}__item--active`}
+        className={`${baseCls}__item`}
+        onClick={() => onClickFilter('archived')}
+      >
+        Archived
+      </Link>
+
+      <Button
+        buttonClass="button--archive-all" 
+        text="Archive all completed"
+      />
     </div>
   );
 }

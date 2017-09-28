@@ -1,10 +1,19 @@
 // Navbar module
 .navbar {
+  background-color: map-get($colors, lightgray);
+  padding: 0px 8%;
+
   &__item {
+    color: map-get($colors, grey);
+    display: inline-block;
+    margin-right: 25px;
+    padding-bottom: 8px;
+    padding-top: 8px;
     text-decoration: none;
   }
 
   &__item--active {
+    color: map-get($colors, darkgrey);
     font-weight: 700;
   }
 }
