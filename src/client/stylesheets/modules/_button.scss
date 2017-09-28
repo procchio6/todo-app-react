@@ -1,0 +1,16 @@
+.button {
+  background-color: map-get($colors, green);
+  border: none;
+  border-radius: 3px;
+  color: map-get($colors, ui-light);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--archive-all {
+    box-sizing: content-box;
+    float: right;
+    margin-top: 9px;
+  }
+}
